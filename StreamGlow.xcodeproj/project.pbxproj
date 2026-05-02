@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DA85E90D4DAC6363E5F838E /* StreamGlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87375731679614F3BF5B4B3 /* StreamGlowModel.swift */; };
+		392CB98442F18C01E4C0FEEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F28084B128ACD2A9BB47 /* ContentView.swift */; };
+		4D94F297F434B633AE598567 /* NowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59BEE06AEFA30A15A355B5 /* NowPlayingService.swift */; };
+		6DFF625FB87226C9F95BECC7 /* OverlayServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC272BF22F6B4DA79C4DD98A /* OverlayServer.swift */; };
+		780AB4785CE873A5F961AD4C /* Overlay in Resources */ = {isa = PBXBuildFile; fileRef = 9348072F92B3EC4F9AD8229A /* Overlay */; };
+		7F53EBE49125C1D69BBAA92A /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6A8312F9FCCB8855146D55 /* TrackInfo.swift */; };
+		99478945874FD39E0C1FFF85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF3D906A8F61D98092062C48 /* Assets.xcassets */; };
+		CFDFB06DC64E8C54981BD623 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13DEC64E8A0A95176127CFB /* ThemeSettings.swift */; };
+		D3D2494A39C6C2D4D3FB06F1 /* StreamGlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F2F738153E49859EDA308 /* StreamGlowApp.swift */; };
+		EC4F19C3745B296A604052CD /* PreviewWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F548658B5DDA2A11D5DBF /* PreviewWebView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E5B8A194EA8387DE739F2BF /* StreamGlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamGlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B8F2F738153E49859EDA308 /* StreamGlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamGlowApp.swift; sourceTree = "<group>"; };
+		6B6F548658B5DDA2A11D5DBF /* PreviewWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWebView.swift; sourceTree = "<group>"; };
+		9348072F92B3EC4F9AD8229A /* Overlay */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Overlay; path = StreamGlowApp/Resources/Overlay; sourceTree = SOURCE_ROOT; };
+		A0F0F28084B128ACD2A9BB47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AC272BF22F6B4DA79C4DD98A /* OverlayServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayServer.swift; sourceTree = "<group>"; };
+		B13DEC64E8A0A95176127CFB /* ThemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
+		BF59BEE06AEFA30A15A355B5 /* NowPlayingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingService.swift; sourceTree = "<group>"; };
+		DA6A8312F9FCCB8855146D55 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
+		DF3D906A8F61D98092062C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F87375731679614F3BF5B4B3 /* StreamGlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamGlowModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		157E91C0B699E0A7216BF4B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E5B8A194EA8387DE739F2BF /* StreamGlow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		703F7C9BB1C6438CF48D0517 /* StreamGlowApp */ = {
+			isa = PBXGroup;
+			children = (
+				8DA6818FD49994152941D3E8 /* App */,
+				E7B4E58C79ACF05CC7E72AC1 /* Models */,
+				EF980D8597A95794E78AA5ED /* Services */,
+				E4B9A71A5CD6571CA76B815B /* Views */,
+			);
+			path = StreamGlowApp;
+			sourceTree = "<group>";
+		};
+		8DA6818FD49994152941D3E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A0F0F28084B128ACD2A9BB47 /* ContentView.swift */,
+				1B8F2F738153E49859EDA308 /* StreamGlowApp.swift */,
+				F87375731679614F3BF5B4B3 /* StreamGlowModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A8952D081A171A3E2758DC0A = {
+			isa = PBXGroup;
+			children = (
+				9348072F92B3EC4F9AD8229A /* Overlay */,
+				F28F8A4B9EB941A87C193586 /* Resources */,
+				703F7C9BB1C6438CF48D0517 /* StreamGlowApp */,
+				157E91C0B699E0A7216BF4B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E4B9A71A5CD6571CA76B815B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B6F548658B5DDA2A11D5DBF /* PreviewWebView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7B4E58C79ACF05CC7E72AC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B13DEC64E8A0A95176127CFB /* ThemeSettings.swift */,
+				DA6A8312F9FCCB8855146D55 /* TrackInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF980D8597A95794E78AA5ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF59BEE06AEFA30A15A355B5 /* NowPlayingService.swift */,
+				AC272BF22F6B4DA79C4DD98A /* OverlayServer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F28F8A4B9EB941A87C193586 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DF3D906A8F61D98092062C48 /* Assets.xcassets */,
+			);
+			name = Resources;
+			path = StreamGlowApp/Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B9E300841BC493521046603 /* StreamGlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88886AA9BE5D064EC49DEE22 /* Build configuration list for PBXNativeTarget "StreamGlow" */;
+			buildPhases = (
+				57E80D3C9DCB8C7871214FDC /* Sources */,
+				86C00DD4EF3E90C50D969898 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StreamGlow;
+			packageProductDependencies = (
+			);
+			productName = StreamGlow;
+			productReference = 0E5B8A194EA8387DE739F2BF /* StreamGlow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D9FD3F9B8AA13B2F0192828 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3B9E300841BC493521046603 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1A3583A30DBE737318975ADA /* Build configuration list for PBXProject "StreamGlow" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A8952D081A171A3E2758DC0A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 60;
+			productRefGroup = 157E91C0B699E0A7216BF4B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B9E300841BC493521046603 /* StreamGlow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86C00DD4EF3E90C50D969898 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99478945874FD39E0C1FFF85 /* Assets.xcassets in Resources */,
+				780AB4785CE873A5F961AD4C /* Overlay in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57E80D3C9DCB8C7871214FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				392CB98442F18C01E4C0FEEE /* ContentView.swift in Sources */,
+				4D94F297F434B633AE598567 /* NowPlayingService.swift in Sources */,
+				6DFF625FB87226C9F95BECC7 /* OverlayServer.swift in Sources */,
+				EC4F19C3745B296A604052CD /* PreviewWebView.swift in Sources */,
+				D3D2494A39C6C2D4D3FB06F1 /* StreamGlowApp.swift in Sources */,
+				0DA85E90D4DAC6363E5F838E /* StreamGlowModel.swift in Sources */,
+				CFDFB06DC64E8C54981BD623 /* ThemeSettings.swift in Sources */,
+				7F53EBE49125C1D69BBAA92A /* TrackInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5A9B3DAE84EC7D2E3014DF75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StreamGlow;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "StreamGlow reads the current song from Music and Spotify so your OBS overlay can stay live.";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.praisemourningstar.StreamGlow;
+				PRODUCT_NAME = StreamGlow;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		881BB2D38DC28ABEC98B1924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = StreamGlow;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "StreamGlow reads the current song from Music and Spotify so your OBS overlay can stay live.";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.praisemourningstar.StreamGlow;
+				PRODUCT_NAME = StreamGlow;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C1160BED568EFECF475FF804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EF334A28E4FF529564804771 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A3583A30DBE737318975ADA /* Build configuration list for PBXProject "StreamGlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				881BB2D38DC28ABEC98B1924 /* Debug */,
+				5A9B3DAE84EC7D2E3014DF75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		88886AA9BE5D064EC49DEE22 /* Build configuration list for PBXNativeTarget "StreamGlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF334A28E4FF529564804771 /* Debug */,
+				C1160BED568EFECF475FF804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D9FD3F9B8AA13B2F0192828 /* Project object */;
+}

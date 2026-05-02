@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamGlow Overlay</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="overlay-shell">
+    <div class="ambient-glow"></div>
+    <section class="overlay-card">
+      <div class="artwork-panel">
+        <img class="artwork-image" alt="" />
+        <div class="artwork-fallback">♪</div>
+      </div>
+
+      <div class="track-meta">
+        <div class="meta-topline">
+          <span class="state-dot"></span>
+          <span class="source-badge">MUSIC</span>
+        </div>
+
+        <h1 class="track-title"></h1>
+        <div class="track-artist"></div>
+        <div class="track-album"></div>
+
+        <div class="progress-row">
+          <div class="progress-track">
+            <div class="progress-fill"></div>
+          </div>
+
+          <div class="time-cluster">
+            <div class="visualizer" aria-hidden="true">
+              <span class="viz-bar"></span>
+              <span class="viz-bar"></span>
+              <span class="viz-bar"></span>
+            </div>
+            <span class="time-text">0:00 / 0:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="overlay.js"></script>
+</body>
+</html>
