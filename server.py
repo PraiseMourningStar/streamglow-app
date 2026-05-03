@@ -21,6 +21,7 @@ import tempfile
 import threading
 import time
 import urllib.parse
+import webbrowser
 from dataclasses import asdict, dataclass, field
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -889,7 +890,148 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--port", type=int, default=8974, help="Port to serve on (default: 8974)")
     parser.add_argument("--interval", type=float, default=1.5, help="Polling interval in seconds (default: 1.5)")
     parser.add_argument("--template", default="glassmorphic", help="Default overlay template (default: glassmorphic)")
+    parser.add_argument("--headless", action="store_true", help="Run without the Windows control window")
     return parser.parse_args()
+
+
+def print_startup_banner(url: str, template: str) -> None:
+    print()
+    print("  ╔══════════════════════════════════════════════╗")
+    print("  ║         StreamGlow is running! 🎵            ║")
+    print("  ╠══════════════════════════════════════════════╣")
+    print(f"  ║  Overlay URL: {url:<31}║")
+    print(f"  ║  Platform:    {SYSTEM:<31}║")
+    print(f"  ║  Template:    {template:<31}║")
+    print("  ╠══════════════════════════════════════════════╣")
+    print("  ║  Add this URL as an OBS Browser Source       ║")
+    print("  ║  Recommended size: 720 x 220                 ║")
+    print("  ║  Press Ctrl+C to stop                        ║")
+    print("  ╚══════════════════════════════════════════════╝")
+    print()
+
+
+def should_show_windows_control_window(args: argparse.Namespace) -> bool:
+    return SYSTEM == "Windows" and getattr(sys, "frozen", False) and not args.headless
+
+
+def run_windows_control_window(server: ThreadingHTTPServer, poller: Poller, url: str) -> int:
+    try:
+        import tkinter as tk
+        from tkinter import messagebox
+    except Exception as exc:  # pragma: no cover - only used in packaged Windows builds
+        print(f"[WARN] Could not start Windows control window: {exc}", file=sys.stderr)
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass
+        finally:
+            server.server_close()
+            poller.stop()
+        return 0
+
+    server_thread = threading.Thread(target=server.serve_forever, name="StreamGlowHTTPServer", daemon=True)
+    server_thread.start()
+
+    root = tk.Tk()
+    root.title("StreamGlow")
+    root.geometry("460x260")
+    root.resizable(False, False)
+    root.configure(bg="#10141f")
+
+    url_var = tk.StringVar(value=url)
+    status_var = tk.StringVar(value="StreamGlow is running. Paste this URL into an OBS Browser Source.")
+
+    def copy_url() -> None:
+        root.clipboard_clear()
+        root.clipboard_append(url)
+        status_var.set("Copied OBS URL.")
+
+    def open_overlay() -> None:
+        webbrowser.open(url)
+        status_var.set("Opened overlay in your browser.")
+
+    def quit_app() -> None:
+        root.destroy()
+
+    def on_close() -> None:
+        if messagebox.askokcancel("Quit StreamGlow?", "Stop the overlay server and close StreamGlow?"):
+            quit_app()
+
+    container = tk.Frame(root, bg="#10141f", padx=24, pady=22)
+    container.pack(fill="both", expand=True)
+
+    title = tk.Label(
+        container,
+        text="StreamGlow",
+        bg="#10141f",
+        fg="#ffffff",
+        font=("Segoe UI", 20, "bold"),
+        anchor="w",
+    )
+    title.pack(fill="x")
+
+    subtitle = tk.Label(
+        container,
+        text="Native OBS now-playing overlay server for Windows",
+        bg="#10141f",
+        fg="#c8ceda",
+        font=("Segoe UI", 10),
+        anchor="w",
+    )
+    subtitle.pack(fill="x", pady=(2, 18))
+
+    url_entry = tk.Entry(
+        container,
+        textvariable=url_var,
+        readonlybackground="#0a0d14",
+        fg="#ffffff",
+        bg="#0a0d14",
+        insertbackground="#ffffff",
+        relief="flat",
+        font=("Consolas", 13, "bold"),
+    )
+    url_entry.configure(state="readonly")
+    url_entry.pack(fill="x", ipady=9)
+
+    button_row = tk.Frame(container, bg="#10141f")
+    button_row.pack(fill="x", pady=(16, 14))
+
+    button_style = {
+        "font": ("Segoe UI", 10, "bold"),
+        "relief": "flat",
+        "borderwidth": 0,
+        "padx": 16,
+        "pady": 9,
+        "cursor": "hand2",
+    }
+
+    tk.Button(button_row, text="Copy OBS URL", command=copy_url, bg="#ff9f3c", fg="#111111", **button_style).pack(side="left")
+    tk.Button(button_row, text="Open Preview", command=open_overlay, bg="#263044", fg="#ffffff", **button_style).pack(side="left", padx=(10, 0))
+    tk.Button(button_row, text="Quit", command=quit_app, bg="#3a1d28", fg="#ffffff", **button_style).pack(side="right")
+
+    status = tk.Label(
+        container,
+        textvariable=status_var,
+        bg="#10141f",
+        fg="#aeb7c8",
+        font=("Segoe UI", 9),
+        anchor="w",
+        justify="left",
+        wraplength=400,
+    )
+    status.pack(fill="x")
+
+    root.protocol("WM_DELETE_WINDOW", on_close)
+
+    try:
+        root.mainloop()
+    finally:
+        server.shutdown()
+        server.server_close()
+        poller.stop()
+        server_thread.join(timeout=2)
+
+    return 0
 
 
 def main() -> int:
@@ -905,28 +1047,38 @@ def main() -> int:
     shared.active_template = args.template
 
     poller = Poller(interval_seconds=max(0.5, args.interval))
-    poller.start()
 
     handler = OverlayHandler
     handler.poller = poller
     handler.shared_state = shared
 
-    server = ThreadingHTTPServer((args.host, args.port), handler)
-
     url = f"http://{args.host}:{args.port}"
-    print()
-    print("  ╔══════════════════════════════════════════════╗")
-    print("  ║         StreamGlow is running! 🎵            ║")
-    print("  ╠══════════════════════════════════════════════╣")
-    print(f"  ║  Overlay URL: {url:<31}║")
-    print(f"  ║  Platform:    {SYSTEM:<31}║")
-    print(f"  ║  Template:    {args.template:<31}║")
-    print("  ╠══════════════════════════════════════════════╣")
-    print("  ║  Add this URL as an OBS Browser Source       ║")
-    print("  ║  Recommended size: 720 x 220                 ║")
-    print("  ║  Press Ctrl+C to stop                        ║")
-    print("  ╚══════════════════════════════════════════════╝")
-    print()
+    show_windows_control = should_show_windows_control_window(args)
+
+    try:
+        server = ThreadingHTTPServer((args.host, args.port), handler)
+    except OSError as exc:
+        message = f"Could not start StreamGlow on {url}.\n\n{exc}"
+        if show_windows_control:
+            try:
+                import tkinter as tk
+                from tkinter import messagebox
+
+                root = tk.Tk()
+                root.withdraw()
+                messagebox.showerror("StreamGlow could not start", message)
+                root.destroy()
+            except Exception:
+                pass
+        print(f"[ERROR] {message}", file=sys.stderr)
+        return 1
+
+    poller.start()
+
+    if show_windows_control:
+        return run_windows_control_window(server, poller, url)
+
+    print_startup_banner(url, args.template)
 
     try:
         server.serve_forever()

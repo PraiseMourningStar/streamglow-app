@@ -29,9 +29,12 @@ if (Test-Path $ReleaseDir) {
 pyinstaller `
   --noconfirm `
   --clean `
+  --windowed `
   --onedir `
   --name StreamGlow `
   --icon $IconPath `
+  --hidden-import tkinter `
+  --hidden-import tkinter.messagebox `
   --distpath $DistRoot `
   --workpath (Join-Path $Root "build\pyinstaller") `
   --specpath (Join-Path $Root "build\pyinstaller-spec") `
